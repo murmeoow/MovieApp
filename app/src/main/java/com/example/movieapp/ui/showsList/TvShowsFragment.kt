@@ -18,6 +18,7 @@ class TvShowsFragment : Fragment() {
 
     private val viewModel: TvShowsViewModel by viewModels()
     private lateinit var binding: FragmentTvShowsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +35,6 @@ class TvShowsFragment : Fragment() {
         viewModel.getTvShows()
 
         viewModel.allShows.observe(viewLifecycleOwner, { response ->
-            Toast.makeText(requireContext(), response.body().toString(), Toast.LENGTH_SHORT).show()
             if (response.isSuccessful) {
                 adapter.submitList(response.body())
             }else{

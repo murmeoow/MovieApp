@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.movieapp.R
 import com.example.movieapp.databinding.TvShowItemBinding
 import com.example.movieapp.models.TvShowResponseItem
@@ -19,7 +20,10 @@ class TvShowsAdapter(val clickListener: (Int) -> Unit): ListAdapter<TvShowRespon
         val binding = TvShowItemBinding.bind(item)
 
          fun bind(tvShow: TvShowResponseItem) = with(binding){
-             //image.setImageResource(tvShow.image)
+             image.load(tvShow.image.original) {
+                 crossfade(true)
+                 crossfade(1000)
+             }
              tvName.text = tvShow.name
              tvName.setOnClickListener {
                  clickListener(tvShow.id)
