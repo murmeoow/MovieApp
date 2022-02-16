@@ -1,2 +1,2 @@
 # MovieApp
-MVVM, LiveData, Retrofit2, Hilt, Coli, TVMaze API
+MVVM, LiveData, Retrofit2, Coroutines, Hilt, Coli, TVMaze API
